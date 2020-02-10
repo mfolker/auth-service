@@ -9,7 +9,13 @@ const configure = () =>  {
 
   log4js.configure({
     appenders: {
-      console: { type: 'console' }
+      console: { 
+        type: 'console', 
+        layout: { 
+          type: 'pattern',
+          pattern: '%[ [%d] %] %p %c - %m%n'
+       }
+      }
     },
     categories: {
       default: { appenders: ['console'], level: 'trace' }
