@@ -4,6 +4,7 @@
   "description": "An implementation of Express, PassportJs and OIDC-Provider to provide a reusable and extendable OIDC Provider",
   "main": "server.js",
   "scripts": {
+    "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,6 +17,7 @@
   "author": "Matthew Folker",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "log4js": "^6.1.1"
   }
 }
