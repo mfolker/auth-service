@@ -7,6 +7,7 @@ const express = require('express');
 const log4js = require('log4js');
 const httpContext = require('express-http-context');
 const logging = require('./logging');
+const uuidv4 = require('uuid/v4');
 
 // Constants
 const PORT = 8171;
@@ -21,7 +22,7 @@ const app = express();
 
 app.use(httpContext.middleware);
 app.use((req, res, next) => {
-    httpContext.set('correlation-id', "0000-11111-22222-3333");
+    httpContext.set('correlation-id', uuidv4());
     next();
 });
 
