@@ -1,6 +1,7 @@
 'use strict';
 
 const log4js = require('log4js');
+const httpContext = require('express-http-context');
 
 const configure = () =>  {
 
@@ -13,12 +14,17 @@ const configure = () =>  {
         type: 'console', 
         layout: { 
           type: 'pattern',
-          pattern: '%[ [%d] %] %p %c - %m%n'
-       }
+          pattern: '%[ [%d] %] %p %c %z %x{user} - %m%n',
+          tokens: {
+            user: function(logEvent) {
+              return httpContext.get('correlation-id');
+            }
+          }
+        }
       }
     },
     categories: {
-      default: { appenders: ['console'], level: 'trace' }
+      default: { appenders: ['console'], level: 'trace', enableCallStack : true }
     }
   });
 
