@@ -9,6 +9,9 @@ const httpContext = require('express-http-context');
 const logging = require('./logging');
 const uuidv4 = require('uuid/v4');
 
+//Move out into an initialiser class.
+const createClientsTable = require('./database/createClientsTable');
+
 // Constants
 const PORT = 8171;
 const HOST = '0.0.0.0';
@@ -22,13 +25,13 @@ const app = express();
 
 app.use(httpContext.middleware);
 app.use((req, res, next) => {
-    httpContext.set('correlation-id', uuidv4());
-    next();
+	httpContext.set('correlation-id', uuidv4());
+	next();
 });
 
 app.get('/', (req, res) => {
-    logger.info("Hello world requested.")
-    res.send('Hello World');
+	logger.info('Hello world requested.');
+	res.send('Hello World');
 });
 
 app.listen(PORT, HOST);

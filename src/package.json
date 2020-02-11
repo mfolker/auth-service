@@ -17,6 +17,7 @@
   "author": "Matthew Folker",
   "license": "MIT",
   "dependencies": {
+    "aws-sdk": "^2.615.0",
     "express": "^4.17.1",
     "express-http-context": "^1.2.3",
     "log4js": "^6.1.1",
