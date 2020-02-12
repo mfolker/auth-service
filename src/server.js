@@ -25,7 +25,7 @@ const app = express();
 
 app.use(httpContext.middleware);
 app.use((req, res, next) => {
-	httpContext.set('correlation-id', uuidv4());
+	httpContext.set(logging.correlationIdContextKey, uuidv4());
 	next();
 });
 

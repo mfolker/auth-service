@@ -3,10 +3,10 @@
 const log4js = require('log4js');
 const httpContext = require('express-http-context');
 
-const configure = () =>  {
+const correlationIdContextKey = "correlation-id";
 
+const configure = () =>  {
   //Add in different options for debug, production
-  //Add in correlationID
 
   log4js.configure({
     appenders: {
@@ -14,10 +14,10 @@ const configure = () =>  {
         type: 'console', 
         layout: { 
           type: 'pattern',
-          pattern: '%[ [%d] %] %p %c %z %x{user} - %m%n',
+          pattern: '%[ [%d] %] %p %c %z %x{correlationId} - %m%n',
           tokens: {
-            user: function(logEvent) {
-              return httpContext.get('correlation-id');
+            correlationId: function(logEvent) {
+              return httpContext.get(correlationIdContextKey);
             }
           }
         }
@@ -31,3 +31,4 @@ const configure = () =>  {
 }
 
 exports.configure = configure;
+exports.correlationIdContextKey = correlationIdContextKey;
