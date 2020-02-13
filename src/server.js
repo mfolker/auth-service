@@ -6,9 +6,11 @@
 const express = require('express');
 const log4js = require('log4js');
 const httpContext = require('express-http-context');
-const logging = require('./logging');
 const uuidv4 = require('uuid/v4');
+const { Provider } = require('oidc-provider');
 
+
+const logging = require('./logging');
 //Move out into an initialiser class.
 const createClientsTable = require('./database/createClientsTable');
 

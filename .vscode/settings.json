@@ -1,7 +1,7 @@
 {
     "workbench.colorCustomizations": {
-        "activityBar.background": "#163500",
-        "titleBar.activeBackground": "#1F4A00",
+        "activityBar.background": "#1a8166",
+        "titleBar.activeBackground": "#1a8166",
         "titleBar.activeForeground": "#EFFFE4"
     },
     "liveSassCompile.settings.formats": [
