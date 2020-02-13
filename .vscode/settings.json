@@ -3,5 +3,19 @@
         "activityBar.background": "#163500",
         "titleBar.activeBackground": "#1F4A00",
         "titleBar.activeForeground": "#EFFFE4"
-    }
+    },
+    "liveSassCompile.settings.formats": [
+        // // You can add more
+        // {
+        //     "format": "compressed",
+        //     "extensionName": ".min.css",
+        //     "savePath": "/dist/css"
+        // },
+        // More Complex
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "~/../public/css/"
+        }
+    ]
 }
