@@ -25,6 +25,7 @@ const logger = log4js.getLogger('startup');
 // App
 const app = express();
 
+// Add middleware
 app.use(httpContext.middleware);
 app.use((req, res, next) => {
 	httpContext.set(logging.correlationIdContextKey, uuidv4());
@@ -40,5 +41,13 @@ app.get('/', (req, res) => {
 	res.send('Hello World');
 });
 
-app.listen(PORT, HOST);
-logger.info(`Running on http://${HOST}:${PORT}`);
+let server;
+(async () => {
+	//TODO:
+	app.listen(PORT, HOST);
+	logger.info(`Running on http://${HOST}:${PORT}`);
+})().catch((err) => {
+	if (server && server.listening) server.close();
+	console.error(err);
+	process.exitCode = 1;
+});
