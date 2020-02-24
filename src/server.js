@@ -10,13 +10,18 @@ const uuidv4 = require('uuid/v4');
 const path = require('path');
 const { Provider } = require('oidc-provider');
 
-const logging = require('./logging');
-//Move out into an initialiser class.
-const createClientsTable = require('./database/createClientsTable');
+//Routes
+const interactions = require('./routes/interactions');
+const errors = require('./routes/errors');
 
-// Constants
-const PORT = 8171;
-const HOST = '0.0.0.0';
+const logging = require('./logging');
+
+//Database
+//const createClientsTable = require('./database/createClientsTable'); //Move out into an initialiser class.
+
+const { PORT = 8171, ISSUER = `http://localhost:${PORT}` } = process.env;
+
+const configuration = require('./configuration');
 
 //Logging
 logging.configure();
@@ -44,8 +49,16 @@ app.get('/', (req, res) => {
 let server;
 (async () => {
 	//TODO:
+	let adapter;
+
+	const provider = new Provider(ISSUER, { adapter, ...configuration });
+
+	//interactions(app, provider);
+	errors(app);
+	app.use(provider.callback);
+
 	app.listen(PORT, HOST);
-	logger.info(`Running on http://${HOST}:${PORT}`);
+	logger.info(`Running on http://${ISSUER}`);
 })().catch((err) => {
 	if (server && server.listening) server.close();
 	console.error(err);
