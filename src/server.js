@@ -47,7 +47,7 @@ let server;
 
 	const provider = new Provider(ISSUER, { adapter, ...configuration });
 
-	//interactions(app, provider);
+	interactions(app, provider);
 	errors(app);
 	home(app);
 	app.use(provider.callback);
