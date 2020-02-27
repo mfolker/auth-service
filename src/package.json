@@ -1,27 +1,21 @@
 {
-  "name": "homebuild-oidc-provider",
-  "version": "0.0.1",
-  "description": "An implementation of Express, PassportJs and OIDC-Provider to provide a reusable and extendable OIDC Provider",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "OIDC",
-    "Express",
-    "PassportJS",
-    "OIDC-Provider",
-    "OAuth2.0"
-  ],
-  "author": "Matthew Folker",
-  "license": "MIT",
-  "dependencies": {
-    "aws-sdk": "^2.615.0",
-    "express": "^4.17.1",
-    "express-http-context": "^1.2.3",
-    "log4js": "^6.1.1",
-    "oidc-provider": "^6.20.2",
-    "uuid": "^3.4.0"
-  }
+	"name": "homebuild-oidc-provider",
+	"version": "0.0.1",
+	"description": "An implementation of Express, PassportJs and OIDC-Provider to provide a reusable and extendable OIDC Provider",
+	"main": "server.js",
+	"scripts": {
+		"start": "set DEPLOYMENT_ENV=local && node server",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [ "OIDC", "Express", "PassportJS", "OIDC-Provider", "OAuth2.0" ],
+	"author": "Matthew Folker",
+	"license": "MIT",
+	"dependencies": {
+		"aws-sdk": "^2.615.0",
+		"express": "^4.17.1",
+		"express-http-context": "^1.2.3",
+		"log4js": "^6.1.1",
+		"oidc-provider": "^6.20.2",
+		"uuid": "^3.4.0"
+	}
 }

@@ -16,11 +16,15 @@ const home = require('./routes/home');
 const logging = require('./logging');
 
 //Database
-//const createClientsTable = require('./database/createClientsTable'); //Move out into an initialiser class.
+const x = require('./database/local_initialisatiion'); 
+// if (process.env.DEPLOYMENT_ENV === "local"){
+// 	const x =require('./database/local_initialisatiion'); 
+// }
+
 
 const { PORT = 8171, ISSUER = `http://localhost:${PORT}`, HOST = '0.0.0.0' } = process.env;
 
-const configuration = require('./configuration');
+const providerConfiguration = require('./providerConfiguration');
 
 //Logging
 logging.configure();
@@ -45,7 +49,7 @@ let server;
 	//TODO:
 	let adapter;
 
-	const provider = new Provider(ISSUER, { adapter, ...configuration });
+	const provider = new Provider(ISSUER, { adapter, ...providerConfiguration });
 
 	interactions(app, provider);
 	errors(app);
@@ -53,6 +57,7 @@ let server;
 	app.use(provider.callback);
 
 	app.listen(PORT, HOST);
+	logger.info(process.env.DEPLOYMENT_ENV);
 	logger.info(`Running on ${ISSUER}`);
 })().catch((err) => {
 	if (server && server.listening) server.close();
