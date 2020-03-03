@@ -1,6 +1,7 @@
 'use strict';
 
 const snakeCase = require('lodash/snakeCase');
+const { dynamodb } = require("./dynamodb");
 
 class MyAdapter {
 
