@@ -24,9 +24,7 @@ if (process.env.DEPLOYMENT_ENV.trim() == 'local'){
 	require('./database/local_initialisatiion'); 
 }
 
-
 const { PORT = 8171, ISSUER = `http://localhost:${PORT}`, HOST = '0.0.0.0' } = process.env;
-
 const providerConfiguration = require('./providerConfiguration');
 
 

@@ -1,4 +1,4 @@
-const { createTable } = require("./dynamodb");
+const { createTable } = require("./dynamodbInitialiser");
 
 const tableName = "Clients";
 
