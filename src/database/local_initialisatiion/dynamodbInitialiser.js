@@ -13,17 +13,17 @@ function createTable(params, tableName){
     dynamodb.createTable(params, function(err, data) {
     if (err) {
         if (err.code === "ResourceInUseException") {
-        logger.info(`Table ${tableName} already exists.`);
+            logger.info(`Table ${tableName} already exists.`);
         } else {
-        logger.error(
-            `Unable to create table: ${tableName}. Error JSON:`,
-            JSON.stringify(err, null, 2)
-        );
+            logger.error(
+                `Unable to create table: ${tableName}. Error JSON:`,
+                JSON.stringify(err, null, 2)
+            );
         }
     } else {
         logger.info(
-        `Created table: ${tableName}. Table description JSON:`,
-        JSON.stringify(data, null, 2)
+            `Created table: ${tableName}. Table description JSON:`,
+            JSON.stringify(data, null, 2)
         );
     }
     });

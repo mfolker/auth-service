@@ -1,6 +1,6 @@
 'use strict';
 
-const { createTable } = require("./dynamodbInitialiser");
+const { createTable } = require("../dynamodbInitialiser");
 
 const tableName = "Clients";
 

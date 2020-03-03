@@ -1,0 +1,15 @@
+{
+	"app": {
+		"port": 8171,
+		"host": "0.0.0.0",
+		"issuer": "http://localhost:8171"
+	},
+	"aws":{
+		"region": "eu-west-1"
+	},
+	"database": {
+		"host": "localhost",
+		"port": 8000,
+		"endpoint": "http://localhost:8000"
+	}
+}
