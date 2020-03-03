@@ -18,11 +18,10 @@ const logging = require('./logging');
 logging.configure();
 const logger = log4js.getLogger('startup');
 
-
 //Database
 if (process.env.DEPLOYMENT_ENV.trim() == 'local'){
 	logger.debug("Running locally, creating database tables")
-	const x = require('./database/local_initialisatiion'); 
+	require('./database/local_initialisatiion'); 
 }
 
 
