@@ -1,3 +1,5 @@
+'use strict';
+
 const environments = {
     local: 0,
     dev: 1,

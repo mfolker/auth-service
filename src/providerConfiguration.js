@@ -1,3 +1,5 @@
+'use strict';
+
 const { interactionPolicy: { Prompt, base: policy } } = require('oidc-provider');
 
 const interactions = policy();
