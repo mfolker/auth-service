@@ -13,22 +13,23 @@ const interactions = require('./routes/interactions');
 const errors = require('./routes/errors');
 const home = require('./routes/home');
 
+//Logging
 const logging = require('./logging');
+logging.configure();
+const logger = log4js.getLogger('startup');
+
 
 //Database
-const x = require('./database/local_initialisatiion'); 
-// if (process.env.DEPLOYMENT_ENV === "local"){
-// 	const x =require('./database/local_initialisatiion'); 
-// }
+if (process.env.DEPLOYMENT_ENV.trim() == 'local'){
+	logger.debug("Running locally, creating database tables")
+	const x = require('./database/local_initialisatiion'); 
+}
 
 
 const { PORT = 8171, ISSUER = `http://localhost:${PORT}`, HOST = '0.0.0.0' } = process.env;
 
 const providerConfiguration = require('./providerConfiguration');
 
-//Logging
-logging.configure();
-const logger = log4js.getLogger('startup');
 
 // App
 const app = express();
