@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html >
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Sign-in</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
   </head>
   <body>
     <div class="login-card">
@@ -16,28 +20,28 @@
     </div>
     <div class="grant-debug">
       <details>
-        <summary style="text-align: center;">(Click to expand) DEBUG information</summary>
-        <div>
-          <strong>uid</strong>: <%= uid %>
-        </div>
+        <summary style="text-align: center;"
+          >(Click to expand) DEBUG information</summary
+        >
+        <div><strong>uid</strong>: <%= uid %></div>
 
         <% if (session) { %>
         <div>
-          SESSION <br>
-         ========= <br>
+          SESSION <br />
+          ========= <br />
           <%- session %>
         </div>
         <% } %>
 
         <div>
-          PARAMS <br>
-         ======== <br>
+          PARAMS <br />
+          ======== <br />
           <%- dbg.params %>
         </div>
 
         <div>
-          PROMPT <br>
-         ======== <br>
+          PROMPT <br />
+          ======== <br />
           <%- dbg.prompt %>
         </div>
       </details>

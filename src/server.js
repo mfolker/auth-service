@@ -3,13 +3,13 @@
 //Packages
 const express = require("express");
 const log4js = require("log4js");
-const path = require("path");
 const { Provider } = require("oidc-provider");
 
 //Modules
 const configuration = require("./config");
 const logging = require("./logging");
 const middlewareRegistration = require("./middlewareRegistration");
+const frontEndRegistration = require("./frontEndRegistration");
 const providerConfiguration = require("./providerConfiguration");
 
 //Routes
@@ -30,10 +30,7 @@ if (process.env.DEPLOYMENT_ENV.trim() == "local") {
 // App
 const app = express();
 middlewareRegistration(app);
-
-app.use("/public", express.static(path.join(__dirname, "public")));
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+frontEndRegistration(app);
 
 (async () => {
   //TODO:

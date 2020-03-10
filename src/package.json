@@ -17,6 +17,7 @@
 	"author": "Matthew Folker",
 	"license": "MIT",
 	"dependencies": {
+		"bootstrap": "^4.4.1",
 		"express": "^4.17.1",
 		"express-http-context": "^1.2.3",
 		"lodash": "^4.17.15",
