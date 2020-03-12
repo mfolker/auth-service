@@ -5,7 +5,7 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "set DEPLOYMENT_ENV=local && nodemon server",
-		"test":	"mocha --reporter dot",
+		"test": "mocha --reporter dot",
 		"coverage": "nyc --reporter html --reporter text npm test"
 	},
 	"keywords": [
@@ -22,8 +22,8 @@
 		"express": "^4.17.1",
 		"express-http-context": "^1.2.3",
 		"lodash": "^4.17.15",
-		"log4js": "^6.1.1",
-		"oidc-provider": "^6.20.2",
+		"log4js": "^6.1.2",
+		"oidc-provider": "^6.23.1",
 		"querystring": "^0.2.0",
 		"uuid": "^3.4.0"
 	},
