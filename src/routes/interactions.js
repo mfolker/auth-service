@@ -64,18 +64,46 @@ module.exports = (app, provider) => {
 
     logger.info(JSON.stringify(params));
 
-    return res.render("select_account", {
-      title: "Sign-in",
-      email: "",
-      uid,
-      session: session ? debug(session) : undefined,
-      dbg: {
-        params: debug(params),
-        prompt: debug(prompt)
+    switch (prompt.name){
+      case 'select_account': {
+        return res.render("select_account", {
+          title: "Sign-in",
+          email: "",
+          uid,
+          session: session ? debug(session) : undefined,
+          dbg: {
+            params: debug(params),
+            prompt: debug(prompt)
+          }
+        });
       }
-    });
-
-    // res.send("Hello, interact with me");
+      case 'consent':{
+        return res.render("interaction", {
+          title: "Authorize",
+          email: "",
+          uid,
+          session: session ? debug(session) : undefined,
+          dbg: {
+            params: debug(params),
+            prompt: debug(prompt)
+          }
+        });
+      }
+      case 'login':
+      default: {
+          return res.render("login", {
+            title: "Sign-in",
+            email: "",
+            uid,
+            params,
+            session: session ? debug(session) : undefined,
+            dbg: {
+              params: debug(params),
+              prompt: debug(prompt)
+            }
+          });
+        }
+    }
   });
 
   app.post(
@@ -110,7 +138,15 @@ module.exports = (app, provider) => {
 
   app.get("/interaction/:uid/abort", setNoCache, async (req, res, next) => {
     logger.info(`GET /interaction/:uid/abort`);
-    //TODO: Implement me
+    try {
+      const result = {
+        error: 'access_denied',
+        error_description: 'End-User aborted interaction',
+      };
+      await provider.interactionFinished(req, res, result, { mergeWithLastSubmission: false });
+    } catch (err) {
+      next(err);
+    }
   });
 
   app.post(

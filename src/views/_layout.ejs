@@ -9,42 +9,50 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Sign-in</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/css/main.min.css" />
   </head>
   <body>
-    <div class="login-card">
-      <h1><%= title %></h1>
-      <%- body %>
-      <div class="login-help">
-        <a href="/interaction/<%= uid %>/abort">[ Cancel ]</a>
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="login-card">
+          <h1><%= title %></h1>
+          <%- body %>
+          <div class="login-help">
+            <a href="/interaction/<%= uid %>/abort">[ Cancel ]</a>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center align-items-center">
+        <div class="grant-debug">
+        <details>
+          <summary style="text-align: center;"
+            >(Click to expand) DEBUG information</summary
+          >
+          <div><strong>uid</strong>: <%= uid %></div>
+
+          <% if (session) { %>
+          <div>
+            SESSION <br />
+            ========= <br />
+            <%- session %>
+          </div>
+          <% } %>
+
+          <div>
+            PARAMS <br />
+            ======== <br />
+            <%- dbg.params %>
+          </div>
+
+          <div>
+            PROMPT <br />
+            ======== <br />
+            <%- dbg.prompt %>
+          </div>
+        </details>
+        </div>
       </div>
     </div>
-    <div class="grant-debug">
-      <details>
-        <summary style="text-align: center;"
-          >(Click to expand) DEBUG information</summary
-        >
-        <div><strong>uid</strong>: <%= uid %></div>
-
-        <% if (session) { %>
-        <div>
-          SESSION <br />
-          ========= <br />
-          <%- session %>
-        </div>
-        <% } %>
-
-        <div>
-          PARAMS <br />
-          ======== <br />
-          <%- dbg.params %>
-        </div>
-
-        <div>
-          PROMPT <br />
-          ======== <br />
-          <%- dbg.prompt %>
-        </div>
-      </details>
-    </div>
+  </div>
   </body>
 </html>
