@@ -21,7 +21,7 @@
 		"bootstrap": "^4.4.1",
 		"express": "^4.17.1",
 		"express-http-context": "^1.2.3",
-		"lodash": "^4.17.15",
+		"lodash": "^4.17.16",
 		"log4js": "^6.1.2",
 		"oidc-provider": "^6.23.1",
 		"querystring": "^0.2.0",
