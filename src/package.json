@@ -22,7 +22,7 @@
 		"express": "^4.17.1",
 		"express-http-context": "^1.2.3",
 		"lodash": "^4.17.21",
-		"log4js": "^6.1.2",
+		"log4js": "^6.4.0",
 		"oidc-provider": "^6.23.1",
 		"querystring": "^0.2.0",
 		"uuid": "^3.4.0"
