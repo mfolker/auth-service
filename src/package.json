@@ -20,7 +20,7 @@
 	"dependencies": {
 		"bootstrap": "^4.4.1",
 		"express": "^4.17.1",
-		"express-http-context": "^1.2.3",
+		"express-http-context": "^2.0.0",
 		"lodash": "^4.17.21",
 		"log4js": "^6.1.2",
 		"oidc-provider": "^6.23.1",
